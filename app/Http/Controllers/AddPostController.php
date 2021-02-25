@@ -55,6 +55,8 @@ class AddPostController extends Controller
         $post = Post::find($id);
         $user_nick = auth()->user()->name;
         $user_id = auth()->user()->id;
+        if ($post->id ==  $user_id)
+        {
         $post->title = $req->input('title');
         $post->anons = $req->input('anons');
         $post->text = $req->input('text');
@@ -67,6 +69,10 @@ class AddPostController extends Controller
         $datePost = Post::where('title', '=', $req->input('title'))->first();                
 
         return redirect('/');
+        } else {
+
+            return redirect('/');
+        }
         
     }
     public function postDelete($id){
