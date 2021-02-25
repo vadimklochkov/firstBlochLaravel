@@ -23,6 +23,7 @@ Route::get('/post/{id}',[\App\Http\Controllers\AddPostController::class, 'postIn
 Route::post('/post/{id}',[\App\Http\Controllers\AddPostController::class, 'postComment'])->name('addPost-postComment');
 Route::get('/post/{id}/delete',[\App\Http\Controllers\AddPostController::class, 'postDelete'])->name('addPost-postComment');
 Route::get('/post/{id}/edit',[\App\Http\Controllers\AddPostController::class, 'postEditForm'])->name('addPost-postEditForm');
+Route::post('/post/{id}/edit',[\App\Http\Controllers\AddPostController::class, 'postEdit'])->name('addPost-postEdit');
 
 Route::get('/',[\App\Http\Controllers\PostController::class, 'allPosts'])->name('post-allPosts');
 Route::post('/login',[\App\Http\Controllers\AuthController::class, 'login'])->name('login');
